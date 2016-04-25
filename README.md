@@ -42,7 +42,7 @@ import Glisten
 view.glisten() 
 
 // Or use the following to configure the highlight more precisely:
-view.glisten(cornerRandius: 8.0, lineWidth: 2.0, color: UIColor.whiteColor())
+view.glisten(cornerRadius: 8.0, lineWidth: 2.0, color: UIColor.whiteColor())
 ```
 
 # Requirements
