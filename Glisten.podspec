@@ -1,7 +1,7 @@
 
 Pod::Spec.new do |s|
   s.name          = "Glisten"
-  s.version       = "0.0.1"
+  s.version       = "0.0.2"
   s.summary       = "Who left the cap off my [bleeping] Glisten!?"
   s.homepage      = "https://github.com/comyarzaheri/Glisten"
   s.license       = { :type => "MIT", :file => "LICENSE" }
