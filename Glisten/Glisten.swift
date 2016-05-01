@@ -48,7 +48,7 @@ class GlistenView: UIView {
       let space = CGColorSpaceCreateDeviceRGB()
       let gradient = CGGradientCreateWithColors(space, [color.CGColor, color.colorWithAlphaComponent(0.0).CGColor], nil)
       let start = CGPointMake(CGRectGetMidX(rect), CGRectGetMinY(rect))
-      let end = CGPointMake(CGRectGetMidX(rect), cornerRadius)
+      let end = CGPointMake(CGRectGetMidX(rect), 1.25 * cornerRadius)
       CGContextDrawLinearGradient(context, gradient, start, end, .DrawsAfterEndLocation)
     } else {
       let context = UIGraphicsGetCurrentContext()
