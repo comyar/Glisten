@@ -32,30 +32,30 @@ import UIKit
 
 class GlistenView: UIView {
   
-  var color: UIColor = UIColor.whiteColor()
+  var color: UIColor = UIColor.white
   var lineWidth: CGFloat = 1.5
   var cornerRadius: CGFloat = 0.0
   
-  override func drawRect(rect: CGRect) {
-    super.drawRect(rect)
+  override func draw(_ rect: CGRect) {
+    super.draw(rect)
     if cornerRadius > 0 {
       let context = UIGraphicsGetCurrentContext()
-      let outer = UIBezierPath(roundedRect: rect, byRoundingCorners: [.TopLeft, .TopRight], cornerRadii: CGSize(width: cornerRadius, height: cornerRadius))
-      CGContextAddPath(context, outer.CGPath)
-      CGContextSetLineWidth(context, lineWidth)
-      CGContextReplacePathWithStrokedPath(context)
-      CGContextClip(context)
+      let outer = UIBezierPath(roundedRect: rect, byRoundingCorners: [.topLeft, .topRight], cornerRadii: CGSize(width: cornerRadius, height: cornerRadius))
+      context?.addPath(outer.cgPath)
+      context?.setLineWidth(lineWidth)
+      context?.replacePathWithStrokedPath()
+      context?.clip()
       let space = CGColorSpaceCreateDeviceRGB()
-      let gradient = CGGradientCreateWithColors(space, [color.CGColor, color.colorWithAlphaComponent(0.0).CGColor], nil)
-      let start = CGPointMake(CGRectGetMidX(rect), CGRectGetMinY(rect))
-      let end = CGPointMake(CGRectGetMidX(rect), 1.25 * cornerRadius)
-      CGContextDrawLinearGradient(context, gradient, start, end, .DrawsAfterEndLocation)
+      let gradient = CGGradient(colorsSpace: space, colors: [color.cgColor, color.withAlphaComponent(0.0).cgColor], locations: nil)
+      let start = CGPoint(x: rect.midX, y: rect.minY)
+      let end = CGPoint(x: rect.midX, y: 1.25 * cornerRadius)
+      context?.drawLinearGradient(gradient!, start: start, end: end, options: .drawsAfterEndLocation)
     } else {
       let context = UIGraphicsGetCurrentContext()
       color.setStroke()
-      CGContextMoveToPoint(context, CGRectGetMinX(rect), CGRectGetMinY(rect))
-      CGContextAddLineToPoint(context, CGRectGetMaxX(rect), CGRectGetMinY(rect))
-      CGContextStrokePath(context)
+      context?.moveTo(x: rect.minX, y: rect.minY)
+      context?.addLineTo(x: rect.maxX, y: rect.minY)
+      context?.strokePath()
     }
   }
 }
@@ -69,7 +69,7 @@ public extension UIView {
    Applies the default glisten to this view.
    */
   public func glisten() {
-    glisten(cornerRadius: 0.0, lineWidth: 1.5, color: UIColor.whiteColor())
+    glisten(cornerRadius: 0.0, lineWidth: 1.5, color: UIColor.white)
   }
   
   /**
@@ -78,12 +78,12 @@ public extension UIView {
    - parameter lineWidth: The width of the line.
    - parameter color: The color of the line.
    */
-  public func glisten(cornerRadius cornerRadius: CGFloat, lineWidth: CGFloat, color: UIColor) {
+  public func glisten(cornerRadius: CGFloat, lineWidth: CGFloat, color: UIColor) {
     let glisten = GlistenView(frame: frame)
     glisten.cornerRadius = cornerRadius
     glisten.color = color
-    glisten.backgroundColor = UIColor.clearColor()
-    glisten.userInteractionEnabled = false
+    glisten.backgroundColor = UIColor.clear
+    glisten.isUserInteractionEnabled = false
     addSubview(glisten)
   }
 }
