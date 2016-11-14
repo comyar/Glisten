@@ -55,4 +55,4 @@ Glisten is available under the [MIT License](LICENSE).
 
 # Contributors
 
-* [@comyarzaheri](https://github.com/comyarzaheri)
+* [@comyar](https://github.com/comyar)
