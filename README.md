@@ -1,10 +1,6 @@
 ![](header.png)
 
 # Overview
-[![Version](http://img.shields.io/cocoapods/v/Glisten.svg)](http://cocoapods.org/?q=Glass)
-[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/comyarzaheri/Glisten)
-[![Platform](http://img.shields.io/cocoapods/p/Glisten.svg)]()
-[![License](http://img.shields.io/cocoapods/l/Glisten.svg)](https://github.com/comyarzaheri/Glisten/blob/master/LICENSE)
 
 Glisten is a simple UIView extension that allows you to add a highlight on top of views. The recommended use case for Glisten is when you're attempting to add a subtle, white highlight to a view with rounded corners and you're not satisfied with just a straight line.
 
